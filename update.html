@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Welcome, Student</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <!-- Include Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            font-size: 24px;
+            margin: 0;
+            padding: 10px 0;
+            text-align: center;
+        }
+
+        .option {
+            margin: 20px 0;
+            border: 1px solid #ccc;
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+        h2 {
+            font-size: 18px;
+            margin: 10px 0;
+        }
+
+        label {
+            display: block;
+            margin: 10px 0;
+        }
+
+        input[type="checkbox"] {
+            margin-right: 5px;
+        }
+
+        input[type="number"] {
+            width: 40px;
+            text-align: center;
+        }
+
+        #total-price {
+            font-weight: bold;
+        }
+
+        select {
+            width: 100%;
+            padding: 5px;
+            margin: 5px 0;
+        }
+
+        #subjects-list {
+            display: none;
+            padding: 10px 0;
+        }
+
+        label {
+            display: block;
+            margin: 5px 0;
+        }
+
+        .option2 input[type="file"] {
+            margin: 10px 0;
+        }
+
+        .logout-link {
+            display: block;
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        /* Additional Styles */
+        .option {
+            background-color: #f9f9f9;
+            padding: 20px;
+            border: 1px solid #ddd;
+        }
+
+        h2 {
+            font-size: 20px;
+            color: #333;
+        }
+	h3 {
+		font-weight: bold;
+		text-align: center;
+		}
+
+        label {
+            color: #333;
+        }
+
+        input[type="checkbox"] {
+            margin-right: 10px;
+        }
+
+        input[type="number"] {
+            width: 60px;
+            text-align: center;
+            padding: 5px;
+            border: 1px solid #ddd;
+        }
+
+        .option2 input[type="file"] {
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: #fff;
+        }
+
+        .logout-link {
+            background-color: #f44336;
+            color: #fff;
+            padding: 10px 20px;
+            text-align: center;
+            border-radius: 5px;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin-top: 20px;
+        }
+
+        .logout-link:hover {
+            background-color: #ff0000;
+        }
+
+        form {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        label {
+            font-weight: bold;
+        }
+
+        input[type="text"],
+        select,
+        input[type="number"] {
+            padding: 8px;
+            width: 100%;
+            margin: 5px 0;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+            box-sizing: border-box;
+        }
+
+        .center-form {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .option img {
+            max-width: 100px;
+        }
+
+        .option label {
+            display: flex;
+            align-items: center;
+        }
+
+        .option .price {
+            margin-left: auto;
+        }
+
+        .center-form input[type="text"],
+        .center-form input[type="number"] {
+            width: auto;
+            max-width: 100%;
+        }
+
+        .quantity-input {
+            width: 60px;
+            text-align: center;
+            padding: 5px;
+            border: 1px solid #ddd;
+        }
+	@keyframes blink {
+    0% { opacity: 1; }
+    50% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+.blinking {
+    animation: blink 1s infinite;
+}
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h3 class="blinking"><b>WELCOME....RCK SIR</b></h3>
+
+
+        <!-- Stationery Items Section -->
+        <div class="option">
+            <h3><b>Stationery Items</b></h3>
+            <form id="stationery-form">
+                <label for="books-ruled">
+                    <img src="./images/book_image1.jpg" alt="Books (Ruled)">
+                    <span class="price">Rs.50</span>
+                    <span class="product-name">Notebook (Ruled)</span>
+                    <input type="number" id="quantity-books-ruled" name="quantity[]" value="1" min="1" max="100" class="quantity-input">
+                </label>
+                <label for="books-unruled">
+                    <img src="./images/book_image2.jpg" alt="Books (Unruled)">
+                    <span class="price">Rs.50</span>
+                    <span class="product-name">Notebook (Unruled)</span>
+                    <input type="number" id="quantity-books-unruled" name="quantity[]" value="1" min="1" max="100" class="quantity-input">
+                </label>
+                <label for="lab-recorders">
+                    <img src="./images/lab_recorders_image.jpg" alt="Lab Recorders">
+                    <span class="price">Rs.25</span>
+                    <span class="product-name">Lab Recorder</span>
+                    <input type="number" id="quantity-lab-recorders" name="quantity[]" value="1" min="1" max="100" class="quantity-input">
+                </label>
+                <label for="pens">
+                    <img src="./images/pens_image.jpg" alt="Pens">
+                    <span class="price">Rs.10</span>
+                    <span class="product-name">Pens</span>
+                    <input type="number" id="quantity-pens" name="quantity[]" value="1" min="1" max="100" class="quantity-input">
+                </label>
+            </form>
+            <p id="total-price">Total Price: Rs. 0</p>
+        </div>
+
+        <!-- Lab Manual Section -->
+        <div class="option">
+            <h3><b>Lab Manuals</b></h3>
+            <label for="lab-scheme-select">Select Scheme:</label>
+            <select id="lab-scheme-select">
+                <option value="2018">2018 Scheme</option>
+                <option value="2021">2021 Scheme</option>
+            </select>
+
+		<label for="engineering-branch-select">Select Branch:</label>
+    <select id="engineering-branch-select">
+        <option value="ece">Electronics and Communication</option>
+        <option value="cse">Computer Science</option>
+        <option value="ise">Information Science</option>
+        <option value="mech">Mechanical Engineering</option>
+        <option value="civil">Civil Engineering</option>
+    </select>
+
+            <label for="lab-semester-select">Select Semester:</label>
+            <select id="lab-semester-select">
+                <option value="">Select Semester</option>
+                <option value="1">Semester 1-chemistry cycle</option>
+                <option value="2">Semester 2-physics cycle</option>
+		<option value="3">Semester 3</option>
+		<option value="4">Semester 4</option>
+		<option value="5">Semester 5</option>
+		<option value="6">Semester 6</option>
+		<option value="7">Semester 7</option>
+		<option value="8">Semester 8</option>
+            </select>
+
+            <div id="lab-subjects-list">
+                <h2><b>Select Lab Subject:</b></h2>
+                <form id="lab-subjects-form">
+                    <!-- Lab subjects will be added dynamically based on the selected scheme and semester -->
+                </form>
+            </div>
+        </div>
+
+        <!-- Engineering Notes Section -->
+<div class="option">
+    <h3><b>Engineering Notes</b></h3>
+    <label for="engineering-scheme-select">Select Scheme:</label>
+    <select id="engineering-scheme-select">
+        <option value="2018">2018 Scheme</option>
+        <option value="2021">2021 Scheme</option>
+    </select>
+
+    <label for="engineering-branch-select">Select Branch:</label>
+    <select id="engineering-branch-select">
+        <option value="ece">Electronics and Communication</option>
+        <option value="cse">Computer Science</option>
+        <option value="ise">Information Science</option>
+        <option value="mech">Mechanical Engineering</option>
+        <option value="civil">Civil Engineering</option>
+    </select>
+
+    <label for="engineering-semester-select">Select Semester:</label>
+    <select id="engineering-semester-select">
+        <option value="">Select Semester</option>
+        <option value="1">Semester 1-chemistry cycle</option>
+        <option value="2">Semester 2-physics cycle</option>
+        <option value="3">Semester 3</option>
+        <option value="4">Semester 4</option>
+        <option value="5">Semester 5</option>
+        <option value="6">Semester 6</option>
+        <option value="7">Semester 7</option>
+        <option value="8">Semester 8</option>
+    </select>
+
+    <div id="engineering-subjects-list">
+        <h2><b>Select Engineering Subject:</b></h2>
+        <form id="engineering-subjects-form">
+            <!-- Engineering subjects will be added dynamically based on the selected scheme, branch, and semester -->
+        </form>
+    </div>
+</div>
+
+        <div class="option">
+            <h3><b>Print Documents</b></h3>
+            <p>Upload the document you want to print:</p>
+            <form action="print.php" method="POST" enctype="multipart/form-data" class="option2">
+                <input type="file" name="document" accept=".pdf, .doc, .docx">
+                <input type="submit" value="Upload and Print">
+            </form>
+        </div>
+
+        <div class="center-form">
+            <label style="font-size: 40px;">Name</label>
+            <input style="width: 800px; font-size: 20px; height: 50px; padding: 5px;" type="text" id="txt_name"><br><br>
+            <label style="font-size: 40px;">Mobile Number</label>
+            <input style="width: 800px; font-size: 20px; height: 50px; padding: 5px;" type="text" id="txt_mobile"><br><br>
+            <button style="width: 800px; font-size: 20px; height: 50px; padding: 5px;" type="button" onclick="orderNow();" id="btn_submit">Order Now</button><br><br>
+        </div>
+
+        <!-- Logout Option -->
+	<a href="store.html" class="logout-link">Logout</a>
+
+    </div>
+
+    <script>
+       
+        const stationeryForm = document.getElementById("stationery-form");
+        const totalPriceDisplay = document.getElementById("total-price");
+
+        stationeryForm.addEventListener("change", updateTotalPrice);
+
+        function updateTotalPrice() {
+            const selectedItems = Array.from(stationeryForm.querySelectorAll('input[type="checkbox"]:checked'));
+            let totalQuantity = 0;
+
+            selectedItems.forEach((item) => {
+                const quantityInput = document.getElementById(`quantity-${item.id}`);
+                const price = parseFloat(item.nextElementSibling.textContent.split("Rs. ")[1]);
+                totalQuantity += parseInt(quantityInput.value) * price;
+            });
+
+            totalPriceDisplay.textContent = "Total Price: Rs. " + totalQuantity.toFixed(2);
+        }
+    </script>
+
+    <script>
+        
+        const labSchemeSelect = document.getElementById("lab-scheme-select");
+        const labSemesterSelect = document.getElementById("lab-semester-select");
+        const labSubjectsList = document.getElementById("lab-subjects-list");
+        const labSubjectsForm = document.getElementById("lab-subjects-form");
+
+        const labSubjects = {
+            "2018": {
+                "1": ["Lab Subject 1A", "Lab Subject 1B"],
+                "2": ["Lab Subject 2A", "Lab Subject 2B"],
+		"3": ["Lab Subject 3A", "Lab Subject 3B"],
+		"4": ["Lab Subject 4A", "Lab Subject 4B"],
+		"5": ["Lab Subject 5A", "Lab Subject 5B"],
+		"6": ["Lab Subject 6A", "Lab Subject 6B"],
+		"7": ["Lab Subject 7A", "Lab Subject 7B"],
+		"8": ["Lab Subject 8A", "Lab Subject 8B"],
+            },
+            "2021": {
+                "1": ["Lab Subject 1A", "Lab Subject 1B"],
+                "2": ["Lab Subject 2A", "Lab Subject 2B"],
+		"3": ["Lab Subject 3A", "Lab Subject 3B"],
+		"4": ["Lab Subject 4A", "Lab Subject 4B"],
+		"5": ["Lab Subject 5A", "Lab Subject 5B"],
+		"6": ["Lab Subject 6A", "Lab Subject 6B"],
+		"7": ["Lab Subject 7A", "Lab Subject 7B"],
+		"8": ["Lab Subject 8A", "Lab Subject 8B"],
+            },
+        };
+
+        labSchemeSelect.addEventListener("change", populateLabSubjects);
+        labSemesterSelect.addEventListener("change", populateLabSubjects);
+
+        function populateLabSubjects() {
+            const selectedScheme = labSchemeSelect.value;
+            const selectedSemester = labSemesterSelect.value;
+            labSubjectsList.style.display = "block";
+
+            if (selectedScheme in labSubjects && selectedSemester in labSubjects[selectedScheme]) {
+                const labSubjectsForSemester = labSubjects[selectedScheme][selectedSemester];
+                labSubjectsForm.innerHTML = labSubjectsForSemester.map(subject => {
+                    return `<label>
+                        <input type="checkbox" name="lab-subjects[]" value="${subject}">
+                        ${subject}
+                    </label>`;
+                }).join("");
+            }
+        }
+    </script>
+
+<script>
+   
+    const engineeringSchemeSelect = document.getElementById("engineering-scheme-select");
+    const engineeringBranchSelect = document.getElementById("engineering-branch-select");
+    const engineeringSemesterSelect = document.getElementById("engineering-semester-select");
+    const engineeringSubjectsList = document.getElementById("engineering-subjects-list");
+    const engineeringSubjectsForm = document.getElementById("engineering-subjects-form");
+
+    const subjectsData = {
+        "2018": {
+            "ece": {
+             	"1": ["18MAT11	Calculus and Linear Algebra",
+"18CHE12	Engineering Chemistry",
+"18CPS13	C Programming for Problem Solving",
+"18ELN14	Basic Electronics",
+"18ME15	Elements of Mechanical Engineering"],
+                "2": ["18MAT21	Advanced Calculus and Numerical Methods","18PHY12 Phvsics",
+"18CIV14	Elements of Civil Engineering and Mechanics",
+"18EGDL15 Engineering Graphics","18ELE13	Basic Electrical Engineering"],
+                "3": ["18MAT31 Transform Calculus, Fourier Series and Numerical Techniques", "18EC32 Network Theory", "18EC33 Electronic Devices", "18EC34 Digital System Design", "18EC35 Computer Organization & Architecture", "18EC36	Power Electronics & Instrumentation"],
+		"4": ["18MAT41	Complex Analysis, Probability and Statistical Methods", "18EC42 Analog Circuits", "18EC43 Control Systems", "18EC44 Engineering Statistics & Linear Algebra", "18EC45 Signals & Systems", "18EC46 Microcontroller"],
+		"5": ["18ES51 Technological Innovation Management And Entrepreneurship", "18EC52 Digital Signal Processing", "18EC53	Principles of Communication Systems", "18EC54	Information Theory & Coding", "18EC55 Electromagnetic Waves", "18EC56	Verilog HDL"],
+		"6": ["18EC61 Digital Communication", "18EC62 Embedded Systems", "18EC63	Microwave & Antennas", "18ECL66	Embedded Systems Laboratory", "18EC646 Python Application programming", "18EC651 Signal Processing","18EC644 Digital System Design using Verilog","18EC643	Object Oriented Programming using C++","18EC651 Signal Processing"],
+		"7": ["18EC71 Computer Networks", "18EC72 VLSI Design", "18EC741 IOT & Wireless Sensor Networks", "18EC743 Multimedia Communication", "18EC733 Digital Image Processing"],
+		"8": ["18EC81 Wireless and Cellular Communication", "18ECS84 Technical Seminar", "18EC821 Network Security", "18EC822 Micro Electro Mechanical Systems", "18EC823 Radar Engineering", "18EC824 Optical Communication Networks"],
+            },
+            "cse": {
+               "1": ["18MAT11	Calculus and Linear Algebra",
+"18CHE12	Engineering Chemistry",
+"18CPS13	C Programming for Problem Solving",
+"18ELN14	Basic Electronics",
+"18ME15	Elements of Mechanical Engineering"],
+                "2": ["18MAT21	Advanced Calculus and Numerical Methods","18PHY12 Phvsics","18CIV14	Elements of Civil Engineering and Mechanics","18EGDL15 Engineering Graphics","18ELE13	Basic Electrical Engineering"],
+                "3": ["18MAT31 Transform Calculus, Fourier Series And Numerical Techniques","18CS32 Data Structures and Applications","18CS33 Analog and Digital Electronics","18CS34 Computer Organization","18CS35 Software Engineering","18CS36 Discrete Mathematical Structure"],
+		"4": ["18MAT41 Complex Analysis, Probability and Statistical Methods","18CS42 Design and Analysis of Algorithms","18CS43 Operating Systems","18CS44 Microcontroller and Embedded Systems","18CS45 Object Oriented Concepts","18CS46 Data Communication","18MATDIP41 ADDITIONAL MATHEMATICS – II"],
+		"5": ["18CS51 Management and Entrepreneurship for IT idustry","18CS52 Computer Networks and Security","18CS53	Database Management System","18CS54 Automata theory and Computability","18CS55 Application Development using Python","18CS56 Unix Programming"],
+		"6": ["18CS61 System Software and Compilers","18CS62 Computer Graphics and Visualization","18CS63	Web Technology and its applications","18CSMP68 Mobile Application Development","18CS653 Programming in JAVA","18CS654 Introduction to Operating System"],
+		"7": ["18CS71 Artificial Intelligence and Machine Learning","18CS72 Big Data Analytics","18CS752 Python Application Programming","18CS745 Robotic Process Automation Design & Development","18CS753	Introduction to Artificial Intelligence","18CS744 Cryptography"],
+		"8": ["18CS81 Internet of Things","18CS821 Mobile Computing","18CS822 Storage Area Networks","18CS823 NoSQL Database","18CS824 Multicore Architecture and Programming"],
+            },
+           "ise":{
+		"1": ["18MAT11	Calculus and Linear Algebra",
+"18CHE12	Engineering Chemistry",
+"18CPS13	C Programming for Problem Solving",
+"18ELN14	Basic Electronics",
+"18ME15	Elements of Mechanical Engineering"],
+               "2": ["18MAT21	Advanced Calculus and Numerical Methods","18PHY12 Phvsics",
+"18CIV14	Elements of Civil Engineering and Mechanics",
+"18EGDL15 Engineering Graphics","18ELE13	Basic Electrical Engineering"],
+                "3": ["18MAT31 Transform Calculus, Fourier Series And Numerical Techniques","18CS32 Data Structures and Applications","18CS33 Analog and Digital Electronics","18CS34 Computer Organization","18CS35 Software Engineering","18CS36 Discrete Mathematical Structure"],
+		"4": "18MAT41 Complex Analysis, Probability and Statistical Methods","18CS42 Design and Analysis of Algorithms","18CS43 Operating Systems","18CS44 Microcontroller and Embedded Systems","18CS45 Object Oriented Concepts","18CS46 Data Communication","18MATDIP41 ADDITIONAL MATHEMATICS – II"
+		"5": ["18CS51 Management and Entrepreneurship for IT idustry","18CS52 Computer Networks and Security","18CS53	Database Management System","18CS54 Automata theory and Computability","18CS55 Application Development using Python","18CS56 Unix Programming"],
+		"6": ["18IS61 File Structures","18IS62	Software Testing","18CS63 Web Technology and its applications","18CSMP68	Mobile Application Development","18CS641 Data Mining and Data Warehousing","18CS653	Programming in JAVA","18CS654 Introduction to Operating System","18CS652 Introduction to Data Structures and Algorithms","18CS643 Cloud Computing and its Applications"],
+		"7": ["18CS71 Artificial Intelligence and Machine Learning","18CS72 Big Data Analytics","18CS752 Python Application Programming","18CS745 Robotic Process Automation Design & Development","18CS753	Introduction to Artificial Intelligence","18CS744 Cryptography"],
+		"8": ["18CS81 Internet of Things","18CS821 Mobile Computing","18CS822 Storage Area Networks","18CS823 NoSQL Database","18CS824 Multicore Architecture and Programming"],
+      	   },
+	"mech":{
+		"1": ["18MAT11	Calculus and Linear Algebra",
+"18CHE12	Engineering Chemistry",
+"18CPS13	C Programming for Problem Solving",
+"18ELN14	Basic Electronics",
+"18ME15	Elements of Mechanical Engineering"],
+                "2": ["18MAT21	Advanced Calculus and Numerical Methods","18PHY12 Phvsics","18CIV14 Elements of Civil Engineering and Mechanics","18EGDL15 Engineering Graphics","18ELE13 Basic Electrical Engineering"],
+                "3": ["18MAT31 Transform Calculus, Fourier Series And Numerical Techniques","18ME32 Mechanics of Materials","18ME33	Basic Thermodynamics","18ME34 Material Science","18ME35A Metal cutting and forming","18ME35B Metal Casting and Welding","18ME36A Computer Aided Machine Drawing","18ME36B Mechanical Measurements and Metrology"],
+		"4": ["18MAT41	Mathematics","18ME42 Applied Thermodynamics","18ME43 Fluid Mechanics","18ME44 Kinematics of Machines","18ME45A Metal cutting and forming","18ME45B	Metal Casting and Welding","18ME46A Computer Aided Machine Drawing","18ME46B Mechanical Measurements and Metrology"],
+		"5": ["18ME51 Management and Economics","18ME52	Design of Machine Elements I","18ME53 Dynamics of Machines","18ME54	Turbo Machines","18ME55	Fluid Power Engineering","18ME56 Operations Management","18CIV59 Environmental Studies"],
+		"6": ["18ME61 Finite Element Methods","18ME62 Design of Machine Elements II","18ME63 Heat Transfer","18ME641 Non-Traditional Machining","18ME642 Refrigeration and Air conditioning",
+"18ME643 Theory of Elasticity","18ME644 Vibrations and Noise Engineering","18ME645 Composite Materials Technology","18ME646 Entrepreneurship Development","18ME651 Non-Conventional Energy Sources","18ME652 World Class Manufacturing","18ME653 Supply Chain Management","18ME654 Advanced Materials Technology"],
+		"7": ["18ME71 Control Engineering","18ME72 Computer Aided Design and Manufacturing","18ME731	Design for Manufacture","18ME732 Automation and Robotics","18ME733 Computational Fluid Dynamics","18ME734 Total Quality Management","18ME735 Operations Research","18ME741 Additive Manufacturing","18ME742 Emerging Sustainable Building Cooling Technologies","18ME743 Theory of Plasticity","18ME744	Mechatronics","18ME745	Project Management","18ME751 Energy and Environment","18ME752 Automotive Engineering","18ME753Industrial Safety","18ME754 Optimization Techniques],
+		"8": ["18ME81 Energy Engineering","18MES84 Technical Seminar","18ME821	CNC Machine Tools"18ME822 Tribology","18ME823 Non-Destructive Testing and Evaluation","18ME824 Automobile Engineering","18ME825 Tool Design","18ME826 Fracture Mechanics"],
+	    },
+	"civil":{
+		"1": ["18MAT11	Calculus and Linear Algebra","18CHE12	Engineering Chemistry","18CPS13	C Programming for Problem Solving","18ELN14	Basic Electronics","18ME15	Elements of Mechanical Engineering"],
+                "2": ["18MAT21	Advanced Calculus and Numerical Methods","18PHY12 Phvsics","18CIV14	Elements of Civil Engineering and Mechanics","18EGDL15 Engineering Graphics","18ELE13	Basic Electrical Engineering"],
+                "3": ["18MAT31	Transform Calculus, Fourier Series and Numerical Techniques","18CV32 Strength of Materials","18CV33	Fluid Mechanics","18CV34 Building Materials and Construction","18CV35 Basic Surveying	","18CV36 Engineering Geology","18MATDIP31 Additional Mathematics - I"],
+		"4": ["18MAT41	Complex Analysis, Probability And Statistical Methods","18CV42	Analysis of Determinate Structures","18CV43 Applied Hydraulics","18CV44	Concrete Technology","18CV45 Advanced Surveying","18CV46 Water Supply & Treatment Engineering","18MATDIP41 Additional Mathematics - II"],
+		"5": ["18CV51	Construction Management & Entrepreneurship","18CV52 Analysis of Indeterminate Structures","18CV53 Design of RC Structural Elements","18CV54 Basic Geotechnical Engineering","18CV55 Municipal Wastewater Engineering","18CV56 Highway Engineering"],
+		"6": ['18CV61	Design of Steel Structural Elements","18CV62	Applied Geotechnical Engineering","18CV63	Hydrology and Irrigation Engineering","18CV641	Matrix Method of Structural Analysis","18CV642	Solid Waste Management","18CV643	Alternate Building Materials","18CV644	Ground Improvement Techniques","18CV645	Railway, Harbours, Tunnelling & Airports","18CV651	Remote Sensing & GIS","18CV652	Traffic Engineering","18CV653	Occupational Health & Safety","18CV654	Sustainability Concepts in Civil Engineering","18CV655	INTELLIGENT TRANSPORTATION SYSTEMS","18CV656	CONSERVATION OF NATURAL RESOURCES"],
+		"7": ["18CV71	Quality Surveying and Contract Management","18CV72	Design of RCC and Steel Structures","18CV731	Theory of Elasticity","18CV732	Air Pollution and Control","18CV733	Pavement Materials & Construction","18CV734	Ground Water Hydraulics","18CV735	Masonry Structures","18CV741	Earthquake Engineering","18CV742	Design Concepts of Building Services","18CV743	Reinforced Earth Structures","18CV744	Design of Hydraulic Structures",'18CV745	Urban Transport Planning","18CV751	Finite Element Method","18CV752	Numerical Methods and Applications","18CV753	Environmental Protection and Management"],
+		"8": ["18CV81	Design of Pre-stressed Concrete","18CV821 Bridge Engineering","18CV822	Prefabricated Structures","18CV823	Advanced Foundation Engineering","18CV824	Rehabilitation & Retrofitting","18CV825	Pavement Design"],
+	     },
+        "2021": {
+            "ece": {
+                "1": ["21MAT11	Calculus and Linear Algebra","21CHE12	Engineering Chemistry","21PSP13	Problem Solving through Programming","21ELN14	Basic Electronics & Communication Engineering","21EME15	Elements of Mechanical Engineering"],
+                "2": ["21MAT11	Calculus and Linear Algebra","21PHY12	Engineering Physics","21ELE13	Basic Electrical Engineering","21CIV14	Elements of Civil Engineering and Mechanics","21EV15	Engineering Visualization"],
+                "3": ["21EC32 Digital System Design using Verilog", "21EC33 Basic Signal Processing", "21EC34 Analog Electronic Circuits", "21MAT31 Mathematics Course", "21MATDIP31 Additional Mathematics - I", "21CIP37 Constitution of India and Professional Ethics"],
+		"4": ["21EC41 Maths for Communication Engineers","21EC42 Digital Signal Processing","21EC43 Circuits & Controls","21EC44	Communication Theory","21BE45	Biology For Engineers","21CIP47	Constitution of India & Professional Ethics","21MATDIP41 Additional Mathematics - II","21EC481 Embedded C Basics","21EC482 C++ Basics","21EC483	Octave / Scilab for Signal"],
+            },
+            "cse": {
+               "1": ["21MAT11	Calculus and Linear Algebra","21CHE12	Engineering Chemistry","21PSP13	Problem Solving through Programming","21ELN14	Basic Electronics & Communication Engineering","21EME15	Elements of Mechanical Engineering"],
+                "2": ["21MAT11	Calculus and Linear Algebra","21PHY12	Engineering Physics","21ELE13	Basic Electrical Engineering","21CIV14	Elements of Civil Engineering and Mechanics","21EV15	Engineering Visualization"],
+                "3": ["21MAT31 Transform Calculus, Fourier Series and Numerical Techniques","21CS32 Data Structures and Applications","21CS33 Analog and Digital Electronics","21CS34 Computer Organization and Architecture","21MATDIP31 Additional Mathematics - I","21CSL381 Mastering Office","21CS382 Programming IN c++"],
+		"4": ["21CS41 Mathematical Foundations for Computing","21CS42 Design and Analysis of Algorithms","21CS43 Microcontroller and Embedded System","21CS44 Operating System","21BE45 Biology For Engineers","21MATDIP41	Additional Mathematics - II","21CSL481	Web Programming","21CS482 Unix Shell Programming","21CSL483	R Programming"],
+            },
+           "ise":{
+		 "1": ["21MAT11	Calculus and Linear Algebra","21CHE12	Engineering Chemistry","21PSP13	Problem Solving through Programming","21ELN14	Basic Electronics & Communication Engineering","21EME15	Elements of Mechanical Engineering"],
+                "2": ["21MAT11	Calculus and Linear Algebra","21PHY12	Engineering Physics","21ELE13	Basic Electrical Engineering","21CIV14	Elements of Civil Engineering and Mechanics","21EV15	Engineering Visualization"],
+                "3": ["21MAT31 Transform Calculus, Fourier Series and Numerical Techniques","21CS32 Data Structures and Applications","21CS33 Analog and Digital Electronics","21CS34 Computer Organization and Architecture","21MATDIP31 Additional Mathematics - I","21CSL381 Mastering Office","21CS382 Programming IN c++"],
+		"4": ["21CS41 Mathematical Foundations for Computing","21CS42 Design and Analysis of Algorithms","21CS43 Microcontroller and Embedded System","21CS44 Operating System","21BE45 Biology For Engineers","21MATDIP41	Additional Mathematics - II","21CSL481	Web Programming","21CS482 Unix Shell Programming","21CSL483	R Programming"],
+		},
+	
+
+		"mech":{
+		 "1": ["21MAT11	Calculus and Linear Algebra","21CHE12	Engineering Chemistry","21PSP13	Problem Solving through Programming","21ELN14	Basic Electronics & Communication Engineering","21EME15	Elements of Mechanical Engineering"],
+                "2": ["21MAT11	Calculus and Linear Algebra","21PHY12	Engineering Physics","21ELE13	Basic Electrical Engineering","21CIV14	Elements of Civil Engineering and Mechanics","21EV15	Engineering Visualization"],
+                "3": ["21MAT31	Transform Calculus, Fourier Series And Numerical Techniques","21ME32 Metal casting, Forming and Joining Processes","21ME33 Material Science and Engineering","21ME34 Thermodynamics","21MATDIP31 Additional Mathematics - I","21ME381 Introduction to PYTHON","21ME382 Fundamentals of Virtual Reality	","21ME383 Digital Society"],
+		"4": ["21ME41Complex Analysis, Probability and Linear Programming","21ME42 Machining Science and Jigs & Fixtures","21ME43 Fluid Mechanics","21ME44	Mechanics of Materials","21BE45	Biology For Engineers","21MATDIP41 Additional Mathematics – II","21ME481 Spread Sheets for Engineers","21ME482 Introduction to AI and ML","21ME483 Fundamentals of Augmented Reality"],
+            },
+	
+
+		"civil":{
+		 "1": ["21MAT11	Calculus and Linear Algebra","21CHE12	Engineering Chemistry","21PSP13	Problem Solving through Programming","21ELN14	Basic Electronics & Communication Engineering","21EME15	Elements of Mechanical Engineering"],
+                "2": ["21MAT11	Calculus and Linear Algebra","21PHY12	Engineering Physics","21ELE13	Basic Electrical Engineering","21CIV14	Elements of Civil Engineering and Mechanics","21EV15	Engineering Visualization"],
+                "3": ["21MAT31	Transform Calculus, Fourier Series and Numerical Techniques","21CV32	Geodetic Engineering","21CV33	Strength of Materials","21CV34	Earth Resources and Engineering","21CVL35	Computer Aided Building Planning and Drawing","21CV381	Problem Solving using Python","21CV382	Microsoft Excel and Visual Basic for Application","21CV383	Personality Development and Soft Skills","21CV384	Infrastructure Finance","21CV385	Fire Safety in Buildings"],
+		"4": ["21MAT41	Complex Analysis, Probability and Statistical Methods","21CV42	Fluid Mechanics and Hydraulics","21CV43	Public Health Engineering","21CV44	Analysis of Structures","21BE45	Biology for Engineers","21MATDIP41 Additional Mathematics - II","21CV481	Data Cleaning and Preparation with Python Pandas","21CV482	GIS with Quantum GIS"],
+            },
+    };
+
+const engineeringSchemeSelect = document.getElementById("engineering-scheme-select");
+const engineeringBranchSelect = document.getElementById("engineering-branch-select");
+const engineeringSemesterSelect = document.getElementById("engineering-semester-select");
+const engineeringSubjectsList = document.getElementById("engineering-subjects-list");
+const engineeringSubjectsForm = document.getElementById("engineering-subjects-form");
+
+
+engineeringSchemeSelect.addEventListener("change", populateEngineeringSubjects);
+engineeringBranchSelect.addEventListener("change", populateEngineeringSubjects);
+engineeringSemesterSelect.addEventListener("change", populateEngineeringSubjects);
+
+
+function populateEngineeringSubjects() {
+    const selectedScheme = engineeringSchemeSelect.value;
+    const selectedBranch = engineeringBranchSelect.value;
+    const selectedSemester = engineeringSemesterSelect.value;
+    engineeringSubjectsList.style.display = "block";
+
+    // Get subjects based on the selected scheme, branch, and semester
+    const subjects = subjectsData[selectedScheme][selectedBranch][selectedSemester];
+
+    if (subjects) {
+        engineeringSubjectsForm.innerHTML = subjects.map(subject => {
+            return `<label>
+                <input type="checkbox" name="engineering-subjects[]" value="${subject}">
+                ${subject}
+            </label>`;
+        }).join("");
+    }
+}
+
+</script>
+<script>
+        // JavaScript to handle the order submission
+        function orderNow() {
+            const name = document.getElementById("txt_name").value;
+            const mobile = document.getElementById("txt_mobile").value;
+
+            const selectedStationeryItems = Array.from(stationeryForm.querySelectorAll('input[type="checkbox"]:checked'));
+            const selectedLabSubjects = Array.from(labSubjectsForm.querySelectorAll('input[type="checkbox"]:checked'));
+            const selectedEngineeringSubjects = Array.from(engineeringSubjectsForm.querySelectorAll('input[type="checkbox"]:checked'));
+
+            const orderDetails = {
+                name,
+                mobile,
+                stationeryItems: selectedStationeryItems.map(item => ({
+                    name: item.id,
+                    quantity: parseInt(document.getElementById(`quantity-${item.id}`).value),
+                    price: parseFloat(item.nextElementSibling.textContent.split("Rs. ")[1])
+                })),
+                labSubjects: selectedLabSubjects.map(subject => subject.value),
+                engineeringSubjects: selectedEngineeringSubjects.map(subject => subject.value)
+            };
+
+            // Send the orderDetails to the server for processing
+            console.log(orderDetails);
+        }
+    </script>
+</body>
+</html>
