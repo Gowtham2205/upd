@@ -206,37 +206,37 @@
         <h3 class="blinking"><b>HII...IT'S BHUVANA</b></h3>
 
 
-        <!-- Stationery Items Section -->
-        <div class="option">
-            <h3><b>Stationery Items</b></h3>
-            <form id="stationery-form">
-                <label for="books-ruled">
-                    <img src="./images/book_image1.jpg" alt="Books (Ruled)">
-                    <span class="price">Rs.50</span>
-                    <span class="product-name">Notebook (Ruled)</span>
-                    <input type="number" id="quantity-books-ruled" name="quantity[]" value="1" min="1" max="100" class="quantity-input">
-                </label>
-                <label for="books-unruled">
-                    <img src="./images/book_image2.jpg" alt="Books (Unruled)">
-                    <span class="price">Rs.50</span>
-                    <span class="product-name">Notebook (Unruled)</span>
-                    <input type="number" id="quantity-books-unruled" name="quantity[]" value="1" min="1" max="100" class="quantity-input">
-                </label>
-                <label for="lab-recorders">
-                    <img src="./images/lab_recorders_image.jpg" alt="Lab Recorders">
-                    <span class="price">Rs.25</span>
-                    <span class="product-name">Lab Recorder</span>
-                    <input type="number" id="quantity-lab-recorders" name="quantity[]" value="1" min="1" max="100" class="quantity-input">
-                </label>
-                <label for="pens">
-                    <img src="./images/pens_image.jpg" alt="Pens">
-                    <span class="price">Rs.10</span>
-                    <span class="product-name">Pens</span>
-                    <input type="number" id="quantity-pens" name="quantity[]" value="1" min="1" max="100" class="quantity-input">
-                </label>
-            </form>
-            <p id="total-price">Total Price: Rs. 0</p>
-        </div>
+       <!-- Stationery Items Section -->
+<div class="option">
+    <h3><b>Stationery Items</b></h3>
+    <form id="stationery-form">
+        <label for="books-ruled">
+            <img src="./images/book_image1.jpg" alt="Books (Ruled)">
+            <span class="price">Rs.50</span>
+            <span class="product-name">Notebook (Ruled)</span>
+            <input type="number" id="quantity-books-ruled" name="quantity[]" value="0" min="0" max="100" class="quantity-input">
+        </label>
+        <label for="books-unruled">
+            <img src="./images/book_image2.jpg" alt="Books (Unruled)">
+            <span class="price">Rs.50</span>
+            <span class="product-name">Notebook (Unruled)</span>
+            <input type="number" id="quantity-books-unruled" name="quantity[]" value="0" min="0" max="100" class="quantity-input">
+        </label>
+        <label for="lab-recorders">
+            <img src="./images/lab_recorders_image.jpg" alt="Lab Recorders">
+            <span class="price">Rs.25</span>
+            <span class="product-name">Lab Recorder</span>
+            <input type="number" id="quantity-lab-recorders" name="quantity[]" value="0" min="0" max="100" class="quantity-input">
+        </label>
+        <label for="pens">
+            <img src="./images/pens_image.jpg" alt="Pens">
+            <span class="price">Rs.10</span>
+            <span class="product-name">Pens</span>
+            <input type="number" id="quantity-pens" name="quantity[]" value="0" min="0" max="100" class="quantity-input">
+        </label>
+    </form>
+    <p id="total-price">Total Price: Rs. 0</p>
+</div>
 
         <!-- Lab Manual Section -->
         <div class="option">
@@ -338,26 +338,30 @@
 
     </div>
 
-   <script>
+  <script>
     const stationeryForm = document.getElementById("stationery-form");
     const totalPriceDisplay = document.getElementById("total-price");
 
-    // Update total price whenever there's a change in quantity
+    // Initialize the total price at Rs. 0
+    totalPriceDisplay.textContent = "Total Price: Rs. 0";
+
+    // Event listener for any change in quantity inputs
     stationeryForm.addEventListener("input", updateTotalPrice);
 
     function updateTotalPrice() {
         let totalQuantity = 0;
 
-        // Iterate over each item in the stationery section
+        // Iterate over each item to calculate total price based on quantity
         const items = stationeryForm.querySelectorAll('label');
         items.forEach((item) => {
             const price = parseFloat(item.querySelector(".price").textContent.replace("Rs.", "").trim());
             const quantity = parseInt(item.querySelector(".quantity-input").value);
             
-            // Calculate the total for this item and add it to the overall total
+            // Calculate the total for this item and add to the overall total
             totalQuantity += quantity * price;
         });
 
+        // Update total price display
         totalPriceDisplay.textContent = "Total Price: Rs. " + totalQuantity.toFixed(2);
     }
 </script>
