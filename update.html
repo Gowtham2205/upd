@@ -338,27 +338,29 @@
 
     </div>
 
-    <script>
-       
-        const stationeryForm = document.getElementById("stationery-form");
-        const totalPriceDisplay = document.getElementById("total-price");
+   <script>
+    const stationeryForm = document.getElementById("stationery-form");
+    const totalPriceDisplay = document.getElementById("total-price");
 
-        stationeryForm.addEventListener("change", updateTotalPrice);
+    // Update total price whenever there's a change in quantity
+    stationeryForm.addEventListener("input", updateTotalPrice);
 
-        function updateTotalPrice() {
-            const selectedItems = Array.from(stationeryForm.querySelectorAll('input[type="checkbox"]:checked'));
-            let totalQuantity = 0;
+    function updateTotalPrice() {
+        let totalQuantity = 0;
 
-            selectedItems.forEach((item) => {
-                const quantityInput = document.getElementById(`quantity-${item.id}`);
-                const price = parseFloat(item.nextElementSibling.textContent.split("Rs. ")[1]);
-                totalQuantity += parseInt(quantityInput.value) * price;
-            });
+        // Iterate over each item in the stationery section
+        const items = stationeryForm.querySelectorAll('label');
+        items.forEach((item) => {
+            const price = parseFloat(item.querySelector(".price").textContent.replace("Rs.", "").trim());
+            const quantity = parseInt(item.querySelector(".quantity-input").value);
+            
+            // Calculate the total for this item and add it to the overall total
+            totalQuantity += quantity * price;
+        });
 
-            totalPriceDisplay.textContent = "Total Price: Rs. " + totalQuantity.toFixed(2);
-        }
-    </script>
-
+        totalPriceDisplay.textContent = "Total Price: Rs. " + totalQuantity.toFixed(2);
+    }
+</script>
     <script>
         
         const labSchemeSelect = document.getElementById("lab-scheme-select");
